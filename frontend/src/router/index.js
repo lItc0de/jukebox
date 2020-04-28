@@ -20,6 +20,18 @@ const routes = [
     name: 'Artist',
     component: () => import(/* webpackChunkName: "artist" */ '../Artist.vue'),
   },
+  {
+    path: '/playlist/:id',
+    name: 'Playlist',
+    component: () =>
+      import(/* webpackChunkName: "playlist" */ '../Playlist.vue'),
+  },
+  {
+    path: '/playlists',
+    name: 'Playlists',
+    component: () =>
+      import(/* webpackChunkName: "playlists" */ '../Playlists.vue'),
+  },
 ];
 
 const router = new VueRouter({
