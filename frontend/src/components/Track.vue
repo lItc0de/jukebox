@@ -3,10 +3,10 @@
     <span class="playing">{{ track.playing }}</span>
     <span class="liked">{{ track.liked }}</span>
     <span class="name">{{ track.name }}</span>
-    <router-link to="/aritsts/1">
+    <router-link to="/artist/1">
       <span class="artist">{{ track.artist }}</span>
     </router-link>
-    <router-link to="/albums/1">
+    <router-link to="/album/1">
       <span class="album">{{ track.album }}</span>
     </router-link>
     <span class="added">{{ track.added }}</span>
