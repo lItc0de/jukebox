@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { TracksService } from './tracks.service';
-import { TracksResolver } from './tracks.reslover';
+import { TracksResolver } from './tracks.resolver';
 import { TrackSchema } from './track.schema';
 
 @Module({
