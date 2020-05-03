@@ -1,19 +1,24 @@
 import { Injectable } from '@nestjs/common';
-import { Track } from './track.model';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { TrackType } from './dto/create-track.dto';
+import { Track } from './interfaces/track.interface';
+import { TrackInput } from './dto/input-track.dto';
 
 @Injectable()
 export class TracksService {
-  private readonly tracks: Track[] = [];
+  constructor(@InjectModel('Track') private trackModel: Model<Track>) {}
 
-  create(track: Track) {
-    this.tracks.push(track);
+  async findAll(): Promise<TrackType[]> {
+    return await this.trackModel.find().exec();
   }
 
-  findAll(): Track[] {
-    return this.tracks;
+  async findOneById(id: string): Promise<TrackType> {
+    return this.trackModel.findOne({ _id: id });
   }
 
-  findOneById(id: number): Track {
-    return this.tracks.find((track) => track.id === id);
+  async create(createTrackDto: TrackInput): Promise<TrackType> {
+    const createdTrack = new this.trackModel(createTrackDto);
+    return await createdTrack.save();
   }
 }

@@ -2,11 +2,20 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Track {
-  id: Int!
-  firstName: String
+type TrackType {
+  _id: ID!
+  name: String!
 }
 
 type Query {
-  track(id: Int!): Track!
+  tracks: [TrackType!]!
+  track(id: String!): TrackType!
+}
+
+type Mutation {
+  createTrack(input: TrackInput!): TrackType!
+}
+
+input TrackInput {
+  name: String!
 }

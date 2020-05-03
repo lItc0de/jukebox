@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
+import { GraphQLModule } from '@nestjs/graphql';
+import { MongooseModule } from '@nestjs/mongoose'
+import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { GraphQLModule } from '@nestjs/graphql';
-import { join } from 'path';
 import { TracksModule } from './tracks/tracks.module';
 
 @Module({
@@ -10,6 +11,7 @@ import { TracksModule } from './tracks/tracks.module';
     GraphQLModule.forRoot({
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     }),
+    MongooseModule.forRoot('mongodb://localhost/jukebox'),
     TracksModule,
   ],
   controllers: [AppController],
