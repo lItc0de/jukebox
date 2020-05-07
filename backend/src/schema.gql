@@ -7,9 +7,15 @@ type TrackType {
   name: String!
 }
 
+type UserType {
+  spotifyId: ID!
+  displayName: String!
+}
+
 type Query {
   tracks: [TrackType!]!
   track(id: String!): TrackType!
+  me: UserType!
 }
 
 type Mutation {

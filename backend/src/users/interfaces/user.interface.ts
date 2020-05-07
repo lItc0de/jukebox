@@ -10,4 +10,6 @@ export interface User extends Document {
   spotifyId: string;
   images: Image[];
   type: 'user';
+  accessToken: string;
+  refreshToken: string;
 }

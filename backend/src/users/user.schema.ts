@@ -1,5 +1,7 @@
 import * as mongoose from 'mongoose';
 
 export const UserSchema = new mongoose.Schema({
-  name: String,
+  displayName: String,
+  spotifyId: String,
+  accessToken: String,
 });
