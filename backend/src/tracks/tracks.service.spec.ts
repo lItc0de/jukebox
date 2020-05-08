@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { getModelToken } from '@nestjs/mongoose';
 import { TracksService } from './tracks.service';
 import { Track } from './interfaces/track.interface';
-import { getModelToken } from '@nestjs/mongoose';
 
 describe('TracksService', () => {
   const trackModel: Track = {
