@@ -1,0 +1,6 @@
+query tracks {
+  tracks {
+    _id
+    name
+  }
+}

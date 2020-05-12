@@ -1,6 +1,11 @@
 <template>
   <div>
-    <c-playlist :tracks="tracks" />
+    <ApolloQuery :query="require('./graphql/Tracks.gql')">
+      <template slot-scope="{ result: { loading, error, data } }">
+        <div v-if="loading">Loading</div>
+        <c-playlist v-else-if="data" :tracks="data.tracks" />
+      </template>
+    </ApolloQuery>
   </div>
 </template>
 
@@ -12,53 +17,6 @@ export default {
 
   components: {
     CPlaylist,
-  },
-
-  data() {
-    return {
-      tracks: [
-        {
-          id: 1,
-          name: 'TrackOne',
-          artist: 'Rrritalin',
-          album: 'Random Dreams',
-          liked: true,
-          duration: '4:03',
-          added: '2020-03-01',
-          playing: false,
-        },
-        {
-          id: 2,
-          name: 'TrackTwo',
-          artist: 'Rrritalin',
-          album: 'Random Dreams',
-          liked: true,
-          duration: '4:03',
-          added: '2020-03-01',
-          playing: true,
-        },
-        {
-          id: 3,
-          name: 'TrackThree',
-          artist: 'Rrritalin',
-          album: 'Random Dreams',
-          liked: true,
-          duration: '4:03',
-          added: '2020-03-01',
-          playing: false,
-        },
-        {
-          id: 4,
-          name: 'TrackFour',
-          artist: 'Rrritalin',
-          album: 'Random Dreams',
-          liked: true,
-          duration: '4:03',
-          added: '2020-03-01',
-          playing: false,
-        },
-      ],
-    };
   },
 };
 </script>
