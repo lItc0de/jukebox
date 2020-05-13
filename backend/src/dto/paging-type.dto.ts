@@ -3,7 +3,7 @@ import { TrackType } from 'src/tracks/dto/track-type.dto';
 
 @ObjectType()
 export class PagingType {
-  @Field()
+  @Field(() => [TrackType])
   readonly items: TrackType[];
 
   @Field()

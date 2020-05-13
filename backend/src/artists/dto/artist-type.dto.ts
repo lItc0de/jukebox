@@ -3,13 +3,13 @@ import { ImageType } from 'src/dto/image-type.dto';
 
 @ObjectType()
 export class ArtistType {
-  @Field()
+  @Field(() => [String])
   readonly genres: string[];
 
   @Field()
   readonly spotifyId: string;
 
-  @Field()
+  @Field(() => [ImageType])
   readonly images: ImageType[];
 
   @Field()

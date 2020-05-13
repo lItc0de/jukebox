@@ -3,7 +3,7 @@ import { UserType } from './user-type.dto';
 
 @ObjectType()
 export class FollowersType {
-  @Field()
+  @Field(() => [UserType])
   readonly users: UserType[];
 
   @Field()

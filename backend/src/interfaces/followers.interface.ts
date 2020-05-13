@@ -1,7 +1,4 @@
 import { Document } from 'mongoose';
-import { User } from 'src/users/interfaces/user.interface';
+import { FollowersType } from 'src/users/dto/followers-type.dto';
 
-export interface Followers extends Document {
-  users: User[];
-  total: number;
-}
+export interface Followers extends FollowersType, Document {}

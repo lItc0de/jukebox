@@ -13,13 +13,13 @@ export class UserType {
   @Field()
   readonly email: string;
 
-  @Field()
+  @Field(() => FollowersType)
   readonly followers: FollowersType;
 
   @Field(() => ID)
   readonly spotifyId: string;
 
-  @Field()
+  @Field(() => [ImageType])
   readonly images: ImageType[];
 
   @Field()

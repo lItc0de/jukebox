@@ -1,9 +1,4 @@
 import { Document } from 'mongoose';
-import { Track } from 'src/tracks/interfaces/track.interface';
+import { PagingType } from 'src/dto/paging-type.dto';
 
-export interface Paging extends Document {
-  items: Track[];
-  limit: number;
-  offset: number;
-  total: number;
-}
+export interface Paging extends PagingType, Document {}

@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { TrackType } from './dto/create-track.dto';
 import { Track } from './interfaces/track.interface';
 import { TrackInput } from './dto/input-track.dto';
+import { TrackType } from './dto/track-type.dto';
 
 @Injectable()
 export class TracksService {

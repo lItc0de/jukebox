@@ -1,7 +1,7 @@
 import { Resolver, Query, Args, Mutation } from '@nestjs/graphql';
 import { TracksService } from './tracks.service';
-import { TrackType } from './dto/create-track.dto';
 import { TrackInput } from './dto/input-track.dto';
+import { TrackType } from './dto/track-type.dto';
 
 @Resolver()
 export class TracksResolver {

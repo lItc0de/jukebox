@@ -7,11 +7,11 @@ export class TrackType {
   @Field()
   readonly album: AlbumType;
 
-  @Field()
+  @Field(() => [ArtistType])
   readonly artists: ArtistType[];
 
   @Field()
-  readonly duraitonMs: number;
+  readonly durationMs: number;
 
   @Field(() => ID)
   readonly spotifyId: string;

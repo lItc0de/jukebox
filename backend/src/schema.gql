@@ -2,14 +2,63 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type TrackType {
-  _id: ID!
+type ImageType {
+  height: Float!
+  url: String!
+  width: Float!
+}
+
+type ArtistType {
+  genres: [String!]!
+  spotifyId: String!
+  images: [ImageType!]!
   name: String!
+  popularity: Float!
+  type: String!
+}
+
+type PagingType {
+  items: [TrackType!]!
+  limit: Float!
+  offset: Float!
+  total: Float!
+}
+
+type AlbumType {
+  artist: ArtistType!
+  genres: [String!]!
+  spotifyId: ID!
+  images: [ImageType!]!
+  label: String!
+  name: String!
+  popularity: Float!
+  tracks: PagingType!
+  type: String!
+}
+
+type TrackType {
+  album: AlbumType!
+  artists: [ArtistType!]!
+  durationMs: Float!
+  spotifyId: ID!
+  name: String!
+  popularity: Float!
+  type: String!
+}
+
+type FollowersType {
+  users: [UserType!]!
+  total: Float!
 }
 
 type UserType {
-  spotifyId: ID!
+  country: String!
   displayName: String!
+  email: String!
+  followers: FollowersType!
+  spotifyId: ID!
+  images: [ImageType!]!
+  type: String!
 }
 
 type Query {

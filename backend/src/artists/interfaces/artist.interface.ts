@@ -1,11 +1,6 @@
 import { Document } from 'mongoose';
-import { Image } from 'src/interfaces/image.interface';
+import { ArtistType } from '../dto/artist-type.dto';
 
-export interface Artist extends Document {
-  genres: string[];
-  spotifyId: string;
-  images: Image[];
-  name: string;
-  popularity: number;
+export interface Artist extends ArtistType, Document {
   type: 'artist';
 }
