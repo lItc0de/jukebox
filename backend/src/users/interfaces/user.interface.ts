@@ -1,8 +1,9 @@
 import { Document } from 'mongoose';
-import { UserType } from '../dto/user-type.dto';
 
-export interface User extends UserType, Document {
+export interface User extends Document {
   type: 'user';
+  spotifyId: string;
+  displayName: string;
   accessToken: string;
   refreshToken: string;
 }

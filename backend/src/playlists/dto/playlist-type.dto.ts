@@ -1,36 +1,45 @@
 import { ObjectType, Field, ID } from '@nestjs/graphql';
-import { UserType } from 'src/users/dto/user-type.dto';
-import { FollowersType } from 'src/users/dto/followers-type.dto';
+import { Expose, Type } from 'class-transformer';
+import { UserPublicType } from 'src/users/dto/user-type.dto';
+// import { FollowersType } from 'src/users/dto/followers-type.dto';
 import { ImageType } from 'src/dto/image-type.dto';
 import { PagingType } from 'src/dto/paging-type.dto';
 
 @ObjectType()
 export class PlaylistType {
+  constructor(partial: Partial<PlaylistType>) {
+    Object.assign(this, partial);
+  }
+
   @Field()
   readonly collaborative: boolean;
 
   @Field()
   readonly description: string;
 
-  @Field()
-  readonly followers: FollowersType;
+  // @Field(() => FollowersType)
+  // readonly followers: FollowersType;
 
   @Field(() => ID)
-  readonly spotifyId: string;
+  @Expose({ name: 'spotifyId' })
+  readonly id: string;
 
-  @Field()
+  @Field(() => [ImageType])
+  @Type(() => ImageType)
   readonly images: ImageType[];
 
   @Field()
   readonly name: string;
 
-  @Field()
-  readonly owner: UserType;
+  @Field(() => UserPublicType)
+  @Type(() => UserPublicType)
+  readonly owner: UserPublicType;
 
   @Field()
   readonly public: boolean | null;
 
-  @Field()
+  @Field(() => PagingType)
+  @Type(() => PagingType)
   readonly tracks: PagingType;
 
   @Field()

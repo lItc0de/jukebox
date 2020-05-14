@@ -3,6 +3,10 @@ import { ImageType } from 'src/dto/image-type.dto';
 
 @ObjectType()
 export class ArtistType {
+  constructor(partial: Partial<ArtistType>) {
+    Object.assign(this, partial);
+  }
+
   @Field(() => [String])
   readonly genres: string[];
 

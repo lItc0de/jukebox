@@ -1,6 +1,9 @@
 import { Document } from 'mongoose';
-import { TrackType } from '../dto/track-type.dto';
+import { Album } from 'src/albums/interfaces/album.interface';
+import { ArtistSimplifiedType } from 'src/artists/dto/artist-simplified.dto';
 
-export interface Track extends TrackType, Document {
+export interface Track extends Document {
+  album: Album;
+  artists: ArtistSimplifiedType[];
   type: 'track';
 }

@@ -2,75 +2,81 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type FollowersType {
+  total: Float!
+}
+
 type ImageType {
   height: Float!
   url: String!
   width: Float!
 }
 
-type ArtistType {
-  genres: [String!]!
-  spotifyId: String!
+type UserPublicType {
+  display_name: String!
+  followers: FollowersType!
+  id: ID!
   images: [ImageType!]!
-  name: String!
-  popularity: Float!
   type: String!
 }
 
-type PagingType {
-  items: [TrackType!]!
-  limit: Float!
-  offset: Float!
-  total: Float!
+type ArtistSimplifiedType {
+  id: String!
+  name: String!
+  type: String!
 }
 
 type AlbumType {
-  artist: ArtistType!
-  genres: [String!]!
-  spotifyId: ID!
+  artists: [ArtistSimplifiedType!]!
+  id: ID!
   images: [ImageType!]!
-  label: String!
   name: String!
-  popularity: Float!
-  tracks: PagingType!
   type: String!
 }
 
 type TrackType {
   album: AlbumType!
-  artists: [ArtistType!]!
-  durationMs: Float!
-  spotifyId: ID!
+  artists: [ArtistSimplifiedType!]!
+  duration_ms: Float!
+  id: ID!
   name: String!
   popularity: Float!
   type: String!
 }
 
-type FollowersType {
-  users: [UserType!]!
+type PlaylistTrackType {
+  added_at: String!
+  added_by: UserPublicType!
+  track: TrackType!
+}
+
+type PagingType {
+  items: [PlaylistTrackType!]!
+  limit: Float!
+  offset: Float!
   total: Float!
 }
 
-type UserType {
-  country: String!
-  displayName: String!
-  email: String!
-  followers: FollowersType!
-  spotifyId: ID!
+type PlaylistType {
+  collaborative: Boolean!
+  description: String!
+  id: ID!
   images: [ImageType!]!
+  name: String!
+  owner: UserPublicType!
+  public: Boolean!
+  tracks: PagingType!
   type: String!
 }
 
+type GetPlaylistsType {
+  items: [PlaylistType!]!
+  limit: Float!
+  offset: Float!
+  total: Float!
+}
+
 type Query {
-  tracks: [TrackType!]!
-  track(id: String!): TrackType!
-  me: UserType!
-}
-
-type Mutation {
-  createTrack(input: TrackInput!): TrackType!
-}
-
-input TrackInput {
-  name: String!
+  playlists: GetPlaylistsType!
+  me: UserPublicType!
 }

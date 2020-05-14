@@ -1,6 +1,6 @@
-import { Document } from 'mongoose';
+// import { Document } from 'mongoose';
 import { PlaylistType } from '../dto/playlist-type.dto';
 
-export interface Playlist extends PlaylistType, Document {
+export interface Playlist extends PlaylistType {
   type: 'playlist';
 }

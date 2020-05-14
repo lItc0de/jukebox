@@ -1,22 +1,28 @@
 import { PassportStrategy } from '@nestjs/passport';
 import { Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
 import { Strategy, StrategyOptionsWithRequest } from 'passport-oauth2';
 import { AuthService } from './auth.service';
+import { AuthConfigurationService } from './auth.configuration.service';
 
 @Injectable()
 export class OAuth2Strategy extends PassportStrategy(Strategy) {
   constructor(
-    private configService: ConfigService,
     private authService: AuthService,
+    private authConfigService: AuthConfigurationService,
   ) {
     super({
-      authorizationURL: configService.get<string>('AUTH_URL'),
-      tokenURL: configService.get<string>('TOKEN_URL'),
-      clientID: configService.get<string>('CLIENT_ID'),
-      clientSecret: configService.get<string>('CLIENT_SECRET'),
-      callbackURL: configService.get<string>('CALLBACK_URL'),
+      authorizationURL: authConfigService.authorizationURL,
+      tokenURL: authConfigService.tokenURL,
+      clientID: authConfigService.clientID,
+      clientSecret: authConfigService.clientSecret,
+      callbackURL: authConfigService.callbackURL,
     } as StrategyOptionsWithRequest);
+  }
+
+  authorizationParams(options: any): any {
+    return Object.assign(options, {
+      scope: this.authConfigService.scope,
+    });
   }
 
   async validate(accessToken, refreshToken, profile, done): Promise<any> {

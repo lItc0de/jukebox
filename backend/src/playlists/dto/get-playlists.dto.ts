@@ -1,16 +1,16 @@
 import { ObjectType, Field } from '@nestjs/graphql';
 import { Type } from 'class-transformer';
-import { PlaylistTrackType } from 'src/tracks/dto/playlist-track-type.dto';
+import { PlaylistType } from './playlist-type.dto';
 
 @ObjectType()
-export class PagingType {
-  constructor(partial: Partial<PagingType>) {
+export class GetPlaylistsType {
+  constructor(partial: Partial<GetPlaylistsType>) {
     Object.assign(this, partial);
   }
 
-  @Field(() => [PlaylistTrackType])
-  @Type(() => PlaylistTrackType)
-  readonly items: PlaylistTrackType[];
+  @Field(() => [PlaylistType])
+  @Type(() => PlaylistType)
+  readonly items: PlaylistType[];
 
   @Field()
   readonly limit: number;

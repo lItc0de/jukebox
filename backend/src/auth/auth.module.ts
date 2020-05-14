@@ -7,6 +7,7 @@ import { AuthService } from './auth.service';
 import { OAuth2Strategy } from './OAuth2.strategy';
 import { jwtConstants } from './auth.constants';
 import { JwtStrategy } from './jwt.strategy';
+import { AuthConfigurationService } from './auth.configuration.service';
 
 @Module({
   imports: [
@@ -18,7 +19,7 @@ import { JwtStrategy } from './jwt.strategy';
       signOptions: { expiresIn: '3600s' },
     }),
   ],
-  providers: [AuthService, OAuth2Strategy, JwtStrategy],
+  providers: [AuthService, OAuth2Strategy, JwtStrategy, AuthConfigurationService],
   exports: [AuthService],
 })
 export class AuthModule {}

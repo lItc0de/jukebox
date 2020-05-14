@@ -1,33 +1,27 @@
 import { ObjectType, Field, ID } from '@nestjs/graphql';
-import { ArtistType } from 'src/artists/dto/artist-type.dto';
-import { PagingType } from 'src/dto/paging-type.dto';
+import { Type, Expose } from 'class-transformer';
 import { ImageType } from 'src/dto/image-type.dto';
+import { ArtistSimplifiedType } from 'src/artists/dto/artist-simplified.dto';
 
 @ObjectType()
 export class AlbumType {
-  @Field()
-  readonly artist: ArtistType;
+  constructor(partial: Partial<AlbumType>) {
+    Object.assign(this, partial);
+  }
 
-  @Field(() => [String])
-  readonly genres: string[];
+  @Field(() => [ArtistSimplifiedType])
+  @Type(() => ArtistSimplifiedType)
+  readonly artists: ArtistSimplifiedType[];
 
   @Field(() => ID)
-  readonly spotifyId: string;
+  @Expose({ name: 'spotifyId' })
+  readonly id: string;
 
   @Field(() => [ImageType])
   readonly images: ImageType[];
 
   @Field()
-  readonly label: string;
-
-  @Field()
   readonly name: string;
-
-  @Field()
-  readonly popularity: number;
-
-  @Field()
-  readonly tracks: PagingType;
 
   @Field()
   readonly type: string;

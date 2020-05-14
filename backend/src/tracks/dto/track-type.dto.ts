@@ -1,20 +1,29 @@
 import { ObjectType, Field, ID } from '@nestjs/graphql';
+import { Type, Expose } from 'class-transformer';
 import { AlbumType } from 'src/albums/dto/album-type.dto';
-import { ArtistType } from 'src/artists/dto/artist-type.dto';
+import { ArtistSimplifiedType } from 'src/artists/dto/artist-simplified.dto';
 
 @ObjectType()
 export class TrackType {
+  constructor(partial: Partial<TrackType>) {
+    Object.assign(this, partial);
+  }
+
   @Field()
+  @Type(() => AlbumType)
   readonly album: AlbumType;
 
-  @Field(() => [ArtistType])
-  readonly artists: ArtistType[];
+  @Field(() => [ArtistSimplifiedType])
+  @Type(() => ArtistSimplifiedType)
+  readonly artists: ArtistSimplifiedType[];
 
   @Field()
-  readonly durationMs: number;
+  @Expose({ name: 'durationMs' })
+  readonly duration_ms: number;
 
   @Field(() => ID)
-  readonly spotifyId: string;
+  @Expose({ name: 'spotifyId' })
+  readonly id: string;
 
   @Field()
   readonly name: string;
