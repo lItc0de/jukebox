@@ -2,7 +2,7 @@ import { Query, Resolver } from '@nestjs/graphql';
 import { PlaylistsService } from './playlists.service';
 import { UseGuards } from '@nestjs/common';
 import { GetPlaylistsType } from './dto/get-playlists.dto';
-import { GqlAuthGuard } from 'src/auth/gql-auth.guard';
+import { GqlAuthGuard } from 'src/auth/gql-jwt.guard';
 import { CurrentUser } from 'src/decorators/currentUser.decorator';
 
 @Resolver()
