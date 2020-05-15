@@ -13,22 +13,22 @@ type ImageType {
 }
 
 type UserPublicType {
-  display_name: String!
+  displayName: String!
   followers: FollowersType!
-  id: ID!
+  spotifyId: ID!
   images: [ImageType!]!
   type: String!
 }
 
 type ArtistSimplifiedType {
-  id: String!
+  spotifyId: String!
   name: String!
   type: String!
 }
 
 type AlbumType {
   artists: [ArtistSimplifiedType!]!
-  id: ID!
+  spotifyId: ID!
   images: [ImageType!]!
   name: String!
   type: String!
@@ -37,16 +37,16 @@ type AlbumType {
 type TrackType {
   album: AlbumType!
   artists: [ArtistSimplifiedType!]!
-  duration_ms: Float!
-  id: ID!
+  durationMs: Float!
+  spotifyId: ID!
   name: String!
   popularity: Float!
   type: String!
 }
 
 type PlaylistTrackType {
-  added_at: String!
-  added_by: UserPublicType!
+  addedAt: String!
+  addedBy: UserPublicType!
   track: TrackType!
 }
 
@@ -60,7 +60,7 @@ type PagingType {
 type PlaylistType {
   collaborative: Boolean!
   description: String!
-  id: ID!
+  spotifyId: ID!
   images: [ImageType!]!
   name: String!
   owner: UserPublicType!

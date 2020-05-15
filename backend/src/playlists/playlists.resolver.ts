@@ -12,7 +12,6 @@ export class PlaylistsResolver {
   @Query(() => GetPlaylistsType)
   @UseGuards(GqlAuthGuard)
   async playlists(@CurrentUser() user): Promise<GetPlaylistsType> {
-    const response = await this.playlistsService.getPlaylists(user.displayName)
-    return new GetPlaylistsType(response);
+    return this.playlistsService.getPlaylists(user.displayName)
   }
 }
