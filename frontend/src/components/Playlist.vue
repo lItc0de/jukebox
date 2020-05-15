@@ -1,22 +1,16 @@
 <template>
   <ul class="playlist">
-    <c-track v-for="track in tracks" :key="track.id" :track="track" />
+    <h1>{{ playlist.name }}</h1>
   </ul>
 </template>
 
 <script>
-import CTrack from './Track.vue';
-
 export default {
   name: 'Playlist',
 
-  components: {
-    CTrack,
-  },
-
   props: {
-    tracks: {
-      type: Array,
+    playlist: {
+      type: Object,
       required: true,
     },
   },

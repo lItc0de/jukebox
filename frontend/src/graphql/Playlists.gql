@@ -1,0 +1,20 @@
+query playlists {
+  playlists {
+    items {
+      description
+      images {
+        url
+      }
+      spotifyId
+      owner {
+        displayName
+        spotifyId
+      }
+      name
+      tracks {
+        total
+      }
+      public
+    }
+  }
+}
