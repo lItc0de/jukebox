@@ -74,6 +74,9 @@ export function createProvider(options = {}) {
         'background: red; color: white; padding: 2px 4px; border-radius: 3px; font-weight: bold;',
         error.message
       );
+
+      // @TODO user vue router 🤷‍♂️
+      window.location.assign('/login');
     },
   });
 

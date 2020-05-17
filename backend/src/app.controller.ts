@@ -1,4 +1,10 @@
-import { Controller, Get, Request, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Request,
+  UseGuards,
+  Res,
+} from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from './auth/auth.service';
 
@@ -12,7 +18,8 @@ export class AppController {
 
   @UseGuards(AuthGuard('oauth2'))
   @Get('auth/callback')
-  async callback(@Request() req) {
-    return this.authService.login(req.user);
+  async callback(@Request() req, @Res() res) {
+    const { accessToken } = await this.authService.login(req.user);
+    return res.redirect(301, `http://localhost:8080/login?accessToken=${accessToken}`);
   }
 }
