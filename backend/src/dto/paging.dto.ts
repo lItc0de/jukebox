@@ -3,7 +3,7 @@ import { Type } from '@nestjs/common';
 
 export function Paginated<T>(classRef: Type<T>): any {
   @ObjectType(`${classRef.name}Edge`)
-  abstract class EdgeType {
+  abstract class EdgeDTO {
     @Field(() => String)
     cursor: string;
 
@@ -12,9 +12,9 @@ export function Paginated<T>(classRef: Type<T>): any {
   }
 
   @ObjectType({ isAbstract: true })
-  abstract class PaginatedType {
-    @Field(() => [EdgeType], { nullable: true })
-    edges: EdgeType[];
+  abstract class PaginatedDTO {
+    @Field(() => [EdgeDTO], { nullable: true })
+    edges: EdgeDTO[];
 
     @Field(() => Int)
     totalCount: number;
@@ -23,5 +23,5 @@ export function Paginated<T>(classRef: Type<T>): any {
     hasNextPage: boolean;
   }
 
-  return PaginatedType;
+  return PaginatedDTO;
 }

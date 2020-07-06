@@ -1,14 +1,14 @@
 import { ObjectType, Field, ID } from '@nestjs/graphql';
-import { AlbumType } from 'src/albums/dto/album-type.dto';
-import { ArtistSimplifiedType } from 'src/artists/dto/artist-simplified.dto';
+import { AlbumDTO } from 'src/albums/dto/album.dto';
+import { ArtistSimplifiedDTO } from 'src/artists/dto/artist-simplified.dto';
 
 @ObjectType()
-export class TrackType {
+export class TrackDTO {
   @Field()
-  readonly album: AlbumType;
+  readonly album: AlbumDTO;
 
-  @Field(() => [ArtistSimplifiedType])
-  readonly artists: ArtistSimplifiedType[];
+  @Field(() => [ArtistSimplifiedDTO])
+  readonly artists: ArtistSimplifiedDTO[];
 
   @Field({ name: 'durationMs' })
   readonly duration_ms: number;

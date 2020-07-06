@@ -1,6 +1,6 @@
 import { Document } from 'mongoose';
-import { ArtistType } from '../dto/artist-type.dto';
+import { ArtistDTO } from '../dto/artist.dto';
 
-export interface Artist extends ArtistType, Document {
+export interface Artist extends ArtistDTO, Document {
   type: string;
 }

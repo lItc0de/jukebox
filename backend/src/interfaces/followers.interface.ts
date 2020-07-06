@@ -1,4 +1,4 @@
 import { Document } from 'mongoose';
-import { FollowersType } from 'src/users/dto/followers-type.dto';
+import { FollowersDTO } from 'src/users/dto/followers.dto';
 
-export interface Followers extends FollowersType, Document {}
+export interface Followers extends FollowersDTO, Document {}

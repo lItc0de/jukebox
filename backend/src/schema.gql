@@ -2,25 +2,25 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type FollowersType {
+type FollowersDTO {
   total: Float!
 }
 
-type ImageType {
+type ImageDTO {
   height: Float!
   url: String!
   width: Float!
 }
 
-type UserPublicType {
+type UserPublicDTO {
   displayName: String!
-  followers: FollowersType!
+  followers: FollowersDTO!
   spotifyId: ID!
-  images: [ImageType!]!
+  images: [ImageDTO!]!
   type: String!
 }
 
-type TracksType {
+type TracksDTO {
   total: Float!
 }
 
@@ -28,11 +28,11 @@ type PlaylistDTO {
   collaborative: Boolean!
   description: String
   spotifyId: ID!
-  images: [ImageType!]!
+  images: [ImageDTO!]!
   name: String!
-  owner: UserPublicType!
+  owner: UserPublicDTO!
   public: Boolean!
-  tracks: TracksType!
+  tracks: TracksDTO!
   type: String!
 }
 
@@ -48,6 +48,6 @@ type GetPlaylistsDTO {
 }
 
 type Query {
-  me: UserPublicType!
+  me: UserPublicDTO!
   playlists(cursor: String, first: Int!): GetPlaylistsDTO!
 }

@@ -1,16 +1,16 @@
 import { ObjectType, Field } from '@nestjs/graphql';
-import { ImageType } from 'src/dto/image-type.dto';
+import { ImageDTO } from 'src/dto/image.dto';
 
 @ObjectType()
-export class ArtistType {
+export class ArtistDTO {
   @Field(() => [String])
   readonly genres: string[];
 
   @Field()
   readonly spotifyId: string;
 
-  @Field(() => [ImageType])
-  readonly images: ImageType[];
+  @Field(() => [ImageDTO])
+  readonly images: ImageDTO[];
 
   @Field()
   readonly name: string;

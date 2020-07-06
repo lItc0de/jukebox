@@ -1,7 +1,7 @@
 import { ObjectType, Field } from '@nestjs/graphql';
 
 @ObjectType()
-export class ImageType {
+export class ImageDTO {
   @Field()
   readonly height: number;
 

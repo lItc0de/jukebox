@@ -1,4 +1,4 @@
 import { Document } from 'mongoose';
-import { ImageType } from 'src/dto/image-type.dto';
+import { ImageDTO } from 'src/dto/image.dto';
 
-export interface Image extends ImageType, Document {}
+export interface Image extends ImageDTO, Document {}

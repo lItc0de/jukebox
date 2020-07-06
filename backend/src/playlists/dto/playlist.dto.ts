@@ -1,11 +1,11 @@
 import { ObjectType, Field, ID } from '@nestjs/graphql';
-import { UserPublicType } from 'src/users/dto/user-type.dto';
+import { UserPublicDTO } from 'src/users/dto/user.dto';
 // import { FollowersType } from 'src/users/dto/followers-type.dto';
-import { ImageType } from 'src/dto/image-type.dto';
-import { Paginated } from 'src/dto/paging-type.dto';
+import { ImageDTO } from 'src/dto/image.dto';
+import { Paginated } from 'src/dto/paging.dto';
 
 @ObjectType()
-class TracksType {
+class TracksDTO {
   @Field()
   readonly total: number;
 }
@@ -24,20 +24,20 @@ export class PlaylistDTO {
   @Field(() => ID, { name: 'spotifyId' })
   readonly id: string;
 
-  @Field(() => [ImageType])
-  readonly images: ImageType[];
+  @Field(() => [ImageDTO])
+  readonly images: ImageDTO[];
 
   @Field()
   readonly name: string;
 
-  @Field(() => UserPublicType)
-  readonly owner: UserPublicType;
+  @Field(() => UserPublicDTO)
+  readonly owner: UserPublicDTO;
 
   @Field()
   readonly public: boolean | null;
 
-  @Field(() => TracksType)
-  readonly tracks: TracksType;
+  @Field(() => TracksDTO)
+  readonly tracks: TracksDTO;
 
   @Field()
   readonly type: string;

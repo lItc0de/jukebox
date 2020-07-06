@@ -1,7 +1,7 @@
 import { InputType, Field } from '@nestjs/graphql';
 
 @InputType()
-export class TrackInput {
+export class TrackInputDTO {
   @Field()
   readonly name: string;
 }
