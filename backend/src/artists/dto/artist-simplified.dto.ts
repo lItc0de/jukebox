@@ -2,7 +2,7 @@ import { ObjectType, Field } from '@nestjs/graphql';
 
 @ObjectType()
 export class ArtistSimplifiedDTO {
-  @Field({ name: 'spotifyId' })
+  @Field()
   readonly id: string;
 
   @Field()

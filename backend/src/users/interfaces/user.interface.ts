@@ -1,9 +1,11 @@
 import { Document } from 'mongoose';
 
-export interface User extends Document {
-  type: string;
+export interface User {
+  type?: string;
   spotifyId: string;
   displayName: string;
   accessToken: string;
-  refreshToken: string;
+  refreshToken?: string;
 }
+
+export interface UserModel extends User, Document {}

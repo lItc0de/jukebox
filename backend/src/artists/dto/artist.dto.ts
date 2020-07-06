@@ -7,7 +7,7 @@ export class ArtistDTO {
   readonly genres: string[];
 
   @Field()
-  readonly spotifyId: string;
+  readonly id: string;
 
   @Field(() => [ImageDTO])
   readonly images: ImageDTO[];

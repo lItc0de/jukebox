@@ -7,15 +7,15 @@ type FollowersDTO {
 }
 
 type ImageDTO {
-  height: Float
+  height: Float!
   url: String!
-  width: Float
+  width: Float!
 }
 
 type UserPublicDTO {
   displayName: String!
   followers: FollowersDTO!
-  id: ID!
+  spotifyId: ID!
   images: [ImageDTO!]!
   type: String!
 }

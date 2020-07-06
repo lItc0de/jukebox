@@ -10,7 +10,7 @@ export class UserPublicDTO {
   @Field(() => FollowersDTO)
   readonly followers: FollowersDTO;
 
-  @Field(() => ID, { name: 'spotifyId' })
+  @Field(() => ID)
   readonly id: string;
 
   @Field(() => [ImageDTO])

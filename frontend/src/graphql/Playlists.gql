@@ -9,12 +9,12 @@ query playlists($cursor: String, $first: Int!) {
         }
         owner {
           displayName
-          spotifyId
+          id
         }
         tracks {
           total
         }
-        spotifyId
+        id
       }
     }
     hasNextPage

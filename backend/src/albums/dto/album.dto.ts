@@ -7,7 +7,7 @@ export class AlbumDTO {
   @Field(() => [ArtistSimplifiedDTO])
   readonly artists: ArtistSimplifiedDTO[];
 
-  @Field(() => ID, { name: 'spotifyId' })
+  @Field(() => ID)
   readonly id: string;
 
   @Field(() => [ImageDTO])

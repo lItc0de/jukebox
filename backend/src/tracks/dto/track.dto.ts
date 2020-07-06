@@ -13,7 +13,7 @@ export class TrackDTO {
   @Field({ name: 'durationMs' })
   readonly duration_ms: number;
 
-  @Field(() => ID, { name: 'spotifyId' })
+  @Field(() => ID)
   readonly id: string;
 
   @Field()

@@ -1,13 +1,13 @@
 import { Injectable, HttpService } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { User } from './interfaces/user.interface';
+import { User, UserModel } from './interfaces/user.interface';
 import { SpotifyUserPublic } from './interfaces/spotify-user-public.interface';
 
 @Injectable()
 export class UsersService {
   constructor(
-    @InjectModel('User') private usersModel: Model<User>,
+    @InjectModel('User') private usersModel: Model<UserModel>,
     private httpService: HttpService,
   ) {}
 
@@ -27,7 +27,12 @@ export class UsersService {
       id: spotifyId,
     }: SpotifyUserPublic = response.data;
 
-    const user = await this.usersModel.findOneAndUpdate(
+    return this.findAndUpdateUser({ displayName, spotifyId, accessToken });
+  }
+
+  async findAndUpdateUser(user: User): Promise<User> {
+    const { displayName, spotifyId, accessToken } = user;
+    return this.usersModel.findOneAndUpdate(
       { displayName },
       {
         displayName,
@@ -36,7 +41,5 @@ export class UsersService {
       },
       { upsert: true, new: true },
     );
-
-    return user;
   }
 }

@@ -17,7 +17,7 @@ export class AuthService {
   }
 
   async login(user: User) {
-    const payload = { username: user.displayName, sub: user._id };
+    const payload = { username: user.displayName, sub: user.spotifyId };
 
     return {
       accessToken: this.jwtService.sign(payload),

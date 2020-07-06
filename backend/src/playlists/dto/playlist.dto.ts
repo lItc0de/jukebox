@@ -21,7 +21,7 @@ export class PlaylistDTO {
   // @Field(() => FollowersType)
   // readonly followers: FollowersType;
 
-  @Field(() => ID, { name: 'spotifyId' })
+  @Field(() => ID)
   readonly id: string;
 
   @Field(() => [ImageDTO])

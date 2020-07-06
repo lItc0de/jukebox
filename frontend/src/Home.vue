@@ -10,7 +10,7 @@
           v-else-if="data"
           v-for="edge in data.playlists.edges"
           :playlist="edge.node"
-          :key="edge.node.spotifyId"
+          :key="edge.node.id"
         />
         <div v-else-if="error">{{ error.message }}</div>
       </template>

@@ -53,6 +53,17 @@
       "restart": true,
       "stopOnEntry": false,
       "protocol": "inspector"
+    },
+    {
+      "type": "node",
+      "name": "nest-jest-e2e-tests",
+      "request": "launch",
+      "args": ["${fileBasenameNoExtension}", "--config", "test/jest-e2e.json"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "disableOptimisticBPs": true,
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest"
     }
   ]
 }
