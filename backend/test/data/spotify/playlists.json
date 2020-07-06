@@ -1,0 +1,138 @@
+{
+  "href": "https://api.spotify.com/v1/users/basti_3/playlists?offset=3&limit=3",
+  "items": [
+    {
+      "collaborative": false,
+      "description": "Classics to Underground, well-known to obscure, extended mixes, versions, Pop, New Wave, R&amp;B, Boogie, Electro, Hip-Hop, Freestyle, Hi-NRG, House, Garage, New Jack Swing, Post-Punk, Mutant Disco, Alternative, Industrial, and everything in between, but all squarely on the beat.",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/4ioWSkvTeCR7vvg3J5xkyu"
+      },
+      "href": "https://api.spotify.com/v1/playlists/4ioWSkvTeCR7vvg3J5xkyu",
+      "id": "4ioWSkvTeCR7vvg3J5xkyu",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b2730324346680f1128ad8f9a685ab67616d0000b27326597d77707bb42dd25d4492ab67616d0000b2738e9a92c8f4f3f2a1c7a61d5cab67616d0000b273acb6e14906c182fb06641848",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b2730324346680f1128ad8f9a685ab67616d0000b27326597d77707bb42dd25d4492ab67616d0000b2738e9a92c8f4f3f2a1c7a61d5cab67616d0000b273acb6e14906c182fb06641848",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b2730324346680f1128ad8f9a685ab67616d0000b27326597d77707bb42dd25d4492ab67616d0000b2738e9a92c8f4f3f2a1c7a61d5cab67616d0000b273acb6e14906c182fb06641848",
+          "width": 60
+        }
+      ],
+      "name": "80s Clublife",
+      "owner": {
+        "display_name": "Ken Thurheimer",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kenthurheimer"
+        },
+        "href": "https://api.spotify.com/v1/users/kenthurheimer",
+        "id": "kenthurheimer",
+        "type": "user",
+        "uri": "spotify:user:kenthurheimer"
+      },
+      "primary_color": null,
+      "public": false,
+      "snapshot_id": "NTA1OSxlNGM2Y2I4YzI0OGQ5MjU0ZjFkNWMzZGI5NTg3MjFkNmM0NTQ3NTBm",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/4ioWSkvTeCR7vvg3J5xkyu/tracks",
+        "total": 4141
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:4ioWSkvTeCR7vvg3J5xkyu"
+    },
+    {
+      "collaborative": false,
+      "description": "The songs you loved most this year, all wrapped up.",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/37i9dQZF1EtcfriCNodVyF"
+      },
+      "href": "https://api.spotify.com/v1/playlists/37i9dQZF1EtcfriCNodVyF",
+      "id": "37i9dQZF1EtcfriCNodVyF",
+      "images": [
+        {
+          "height": null,
+          "url": "https://lineup-images.scdn.co/your-top-songs-2019_DEFAULT-en.jpg",
+          "width": null
+        }
+      ],
+      "name": "Your Top Songs 2019",
+      "owner": {
+        "display_name": "Spotify",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/spotify"
+        },
+        "href": "https://api.spotify.com/v1/users/spotify",
+        "id": "spotify",
+        "type": "user",
+        "uri": "spotify:user:spotify"
+      },
+      "primary_color": null,
+      "public": false,
+      "snapshot_id": "MjYyNjk4MTQsMDAwMDAwMDBmNjU4MDBmMGI4MjNmODkzNzlkYWQ1MDNjYmEzZDMwYQ==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1EtcfriCNodVyF/tracks",
+        "total": 100
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:37i9dQZF1EtcfriCNodVyF"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/79QM3GoxSdJrpCM8WIX9Lm"
+      },
+      "href": "https://api.spotify.com/v1/playlists/79QM3GoxSdJrpCM8WIX9Lm",
+      "id": "79QM3GoxSdJrpCM8WIX9Lm",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b273001f78d91374c7e16f33b778ab67616d0000b27300fecc2266c5de50360fdab1ab67616d0000b2733350482f44c959dabbdce44dab67616d0000b273c7925d7961a180148520ac63",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b273001f78d91374c7e16f33b778ab67616d0000b27300fecc2266c5de50360fdab1ab67616d0000b2733350482f44c959dabbdce44dab67616d0000b273c7925d7961a180148520ac63",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b273001f78d91374c7e16f33b778ab67616d0000b27300fecc2266c5de50360fdab1ab67616d0000b2733350482f44c959dabbdce44dab67616d0000b273c7925d7961a180148520ac63",
+          "width": 60
+        }
+      ],
+      "name": "Auflegen",
+      "owner": {
+        "display_name": "basti_3",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/basti_3"
+        },
+        "href": "https://api.spotify.com/v1/users/basti_3",
+        "id": "basti_3",
+        "type": "user",
+        "uri": "spotify:user:basti_3"
+      },
+      "primary_color": null,
+      "public": false,
+      "snapshot_id": "MTQsOWVkNTM5OGI2YTM3MWRjY2I3MDc5OTk0OWQ4NDA3MGE1MTQ4ZjhlYw==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/79QM3GoxSdJrpCM8WIX9Lm/tracks",
+        "total": 13
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:79QM3GoxSdJrpCM8WIX9Lm"
+    }
+  ],
+  "limit": 3,
+  "next": "https://api.spotify.com/v1/users/basti_3/playlists?offset=6&limit=3",
+  "offset": 3,
+  "previous": "https://api.spotify.com/v1/users/basti_3/playlists?offset=0&limit=3",
+  "total": 84
+}

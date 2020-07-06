@@ -1,20 +1,23 @@
-query playlists {
-  playlists {
-    items {
-      description
-      images {
-        url
-      }
-      spotifyId
-      owner {
-        displayName
+query playlists($cursor: String, $first: Int!) {
+  playlists(cursor: $cursor, first: $first) {
+    edges {
+      node {
+        description
+        name
+        images {
+          url
+        }
+        owner {
+          displayName
+          spotifyId
+        }
+        tracks {
+          total
+        }
         spotifyId
       }
-      name
-      tracks {
-        total
-      }
-      public
     }
+    hasNextPage
+    totalCount
   }
 }

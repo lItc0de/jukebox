@@ -1,17 +1,27 @@
-import { ObjectType, Field } from '@nestjs/graphql';
-import { PlaylistTrackType } from 'src/tracks/dto/playlist-track-type.dto';
+import { Field, ObjectType, Int } from '@nestjs/graphql';
+import { Type } from '@nestjs/common';
 
-@ObjectType()
-export class PagingType {
-  @Field(() => [PlaylistTrackType])
-  readonly items: PlaylistTrackType[];
+export function Paginated<T>(classRef: Type<T>): any {
+  @ObjectType(`${classRef.name}Edge`)
+  abstract class EdgeType {
+    @Field(() => String)
+    cursor: string;
 
-  @Field()
-  readonly limit: number;
+    @Field(() => classRef)
+    node: T;
+  }
 
-  @Field()
-  readonly offset: number;
+  @ObjectType({ isAbstract: true })
+  abstract class PaginatedType {
+    @Field(() => [EdgeType], { nullable: true })
+    edges: EdgeType[];
 
-  @Field()
-  readonly total: number;
+    @Field(() => Int)
+    totalCount: number;
+
+    @Field()
+    hasNextPage: boolean;
+  }
+
+  return PaginatedType;
 }

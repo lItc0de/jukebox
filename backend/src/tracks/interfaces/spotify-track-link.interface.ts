@@ -1,7 +1,7 @@
-import { SpotifyExternalUrl } from 'src/interfaces/spotify-external-url.interface';
+import { SpotifyExternalUrls } from 'src/interfaces/spotify-external-url.interface';
 
 export interface SpotifyTrackLink {
-  external_urls: SpotifyExternalUrl[];
+  external_urls: SpotifyExternalUrls;
   href: string;
   id: string;
   type: string;

@@ -2,14 +2,20 @@ import { ObjectType, Field, ID } from '@nestjs/graphql';
 import { UserPublicType } from 'src/users/dto/user-type.dto';
 // import { FollowersType } from 'src/users/dto/followers-type.dto';
 import { ImageType } from 'src/dto/image-type.dto';
-import { PagingType } from 'src/dto/paging-type.dto';
+import { Paginated } from 'src/dto/paging-type.dto';
 
 @ObjectType()
-export class PlaylistType {
+class TracksType {
+  @Field()
+  readonly total: number;
+}
+
+@ObjectType()
+export class PlaylistDTO {
   @Field()
   readonly collaborative: boolean;
 
-  @Field()
+  @Field(() => String, { nullable: true })
   readonly description: string;
 
   // @Field(() => FollowersType)
@@ -30,9 +36,12 @@ export class PlaylistType {
   @Field()
   readonly public: boolean | null;
 
-  @Field(() => PagingType)
-  readonly tracks: PagingType;
+  @Field(() => TracksType)
+  readonly tracks: TracksType;
 
   @Field()
   readonly type: string;
 }
+
+@ObjectType()
+export class PaginatedPlaylistDTO extends Paginated(PlaylistDTO) {}

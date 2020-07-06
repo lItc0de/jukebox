@@ -1,5 +1,5 @@
 import { SpotifyArtistSimplified } from 'src/artists/interfaces/spotify-artist-simplified.interface';
-import { SpotifyExternalUrl } from 'src/interfaces/spotify-external-url.interface';
+import { SpotifyExternalUrls } from 'src/interfaces/spotify-external-url.interface';
 import { SpotifyTrackLink } from './spotify-track-link.interface';
 import { SpotifyRestriction } from 'src/interfaces/spotify-restriction.interface';
 
@@ -9,7 +9,7 @@ export interface SpotifyTrackSimplified {
   disc_number: number;
   duration_ms: number;
   explicit: boolean;
-  external_urls: SpotifyExternalUrl[];
+  external_urls: SpotifyExternalUrls;
   href: string;
   id: string;
   is_playable: boolean;
@@ -18,7 +18,7 @@ export interface SpotifyTrackSimplified {
   name: string;
   preview_url: string;
   track_number: number;
-  type: 'track';
+  type: string;
   uri: string;
   is_local: boolean;
 }

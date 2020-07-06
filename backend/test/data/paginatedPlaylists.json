@@ -1,0 +1,104 @@
+{
+  "edges": [
+    {
+      "cursor": "NA==",
+      "node": {
+        "collaborative": false,
+        "description": "Classics to Underground, well-known to obscure, extended mixes, versions, Pop, New Wave, R&amp;B, Boogie, Electro, Hip-Hop, Freestyle, Hi-NRG, House, Garage, New Jack Swing, Post-Punk, Mutant Disco, Alternative, Industrial, and everything in between, but all squarely on the beat.",
+        "id": "4ioWSkvTeCR7vvg3J5xkyu",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://mosaic.scdn.co/640/ab67616d0000b2730324346680f1128ad8f9a685ab67616d0000b27326597d77707bb42dd25d4492ab67616d0000b2738e9a92c8f4f3f2a1c7a61d5cab67616d0000b273acb6e14906c182fb06641848",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://mosaic.scdn.co/300/ab67616d0000b2730324346680f1128ad8f9a685ab67616d0000b27326597d77707bb42dd25d4492ab67616d0000b2738e9a92c8f4f3f2a1c7a61d5cab67616d0000b273acb6e14906c182fb06641848",
+            "width": 300
+          },
+          {
+            "height": 60,
+            "url": "https://mosaic.scdn.co/60/ab67616d0000b2730324346680f1128ad8f9a685ab67616d0000b27326597d77707bb42dd25d4492ab67616d0000b2738e9a92c8f4f3f2a1c7a61d5cab67616d0000b273acb6e14906c182fb06641848",
+            "width": 60
+          }
+        ],
+        "name": "80s Clublife",
+        "owner": {
+          "displayName": "Ken Thurheimer",
+          "id": "kenthurheimer",
+          "type": "user"
+        },
+        "public": false,
+        "tracks": {
+          "total": 4141
+        },
+        "type": "playlist"
+      }
+    },
+    {
+      "cursor": "NQ==",
+      "node": {
+        "collaborative": false,
+        "description": "The songs you loved most this year, all wrapped up.",
+        "id": "37i9dQZF1EtcfriCNodVyF",
+        "images": [
+          {
+            "height": null,
+            "url": "https://lineup-images.scdn.co/your-top-songs-2019_DEFAULT-en.jpg",
+            "width": null
+          }
+        ],
+        "name": "Your Top Songs 2019",
+        "owner": {
+          "displayName": "Spotify",
+          "id": "spotify",
+          "type": "user"
+        },
+        "public": false,
+        "tracks": {
+          "total": 100
+        },
+        "type": "playlist"
+      }
+    },
+    {
+      "cursor": "Ng==",
+      "node": {
+        "collaborative": false,
+        "description": "",
+        "id": "79QM3GoxSdJrpCM8WIX9Lm",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://mosaic.scdn.co/640/ab67616d0000b273001f78d91374c7e16f33b778ab67616d0000b27300fecc2266c5de50360fdab1ab67616d0000b2733350482f44c959dabbdce44dab67616d0000b273c7925d7961a180148520ac63",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://mosaic.scdn.co/300/ab67616d0000b273001f78d91374c7e16f33b778ab67616d0000b27300fecc2266c5de50360fdab1ab67616d0000b2733350482f44c959dabbdce44dab67616d0000b273c7925d7961a180148520ac63",
+            "width": 300
+          },
+          {
+            "height": 60,
+            "url": "https://mosaic.scdn.co/60/ab67616d0000b273001f78d91374c7e16f33b778ab67616d0000b27300fecc2266c5de50360fdab1ab67616d0000b2733350482f44c959dabbdce44dab67616d0000b273c7925d7961a180148520ac63",
+            "width": 60
+          }
+        ],
+        "name": "Auflegen",
+        "owner": {
+          "displayName": "basti_3",
+          "id": "basti_3",
+          "type": "user"
+        },
+        "public": false,
+        "tracks": {
+          "total": 13
+        },
+        "type": "playlist"
+      }
+    }
+  ],
+  "totalCount": 84,
+  "hasNextPage": true
+}

@@ -1,7 +1,7 @@
 import { Injectable, HttpService } from '@nestjs/common';
 import { SpotifyPaging } from 'src/interfaces/spotify-paging.interface';
-import { SpotifyPlaylistSimplified } from './interfaces/spotify-playlist-simplified.interface';
 import { UsersService } from 'src/users/users.service';
+import { SpotifyPlaylistSimplified } from './interfaces/spotify-playlist-simplified.interface';
 
 @Injectable()
 export class PlaylistsService {
@@ -12,10 +12,12 @@ export class PlaylistsService {
 
   async getPlaylists(
     displayName: string,
-    limit = 50,
-    offset = 0,
+    first = 50,
+    cursor = null,
   ): Promise<SpotifyPaging<SpotifyPlaylistSimplified>> {
     const { accessToken, spotifyId } = await this.usersService.findUserByDisplayName(displayName);
+    const limit = first;
+    const offset = this.decodeCursor(cursor);
 
     const response = await this.httpService
       .get(`https://api.spotify.com/v1/users/${spotifyId}/playlists`, {
@@ -25,5 +27,11 @@ export class PlaylistsService {
       .toPromise();
 
     return response.data;
+  }
+
+  private decodeCursor(cursor) {
+    const decoded = Number((new Buffer(cursor, 'base64')).toString('utf8'));
+    if (Number.isNaN(decoded)) return 0;
+    return decoded;
   }
 }

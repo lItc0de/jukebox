@@ -4,8 +4,8 @@ import { ImageType } from 'src/dto/image-type.dto';
 
 @ObjectType()
 export class UserPublicType {
-  @Field({ name: 'displayName' })
-  readonly display_name: string;
+  @Field()
+  readonly displayName: string;
 
   @Field(() => FollowersType)
   readonly followers: FollowersType;

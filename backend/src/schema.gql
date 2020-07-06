@@ -20,63 +20,34 @@ type UserPublicType {
   type: String!
 }
 
-type ArtistSimplifiedType {
-  spotifyId: String!
-  name: String!
-  type: String!
-}
-
-type AlbumType {
-  artists: [ArtistSimplifiedType!]!
-  spotifyId: ID!
-  images: [ImageType!]!
-  name: String!
-  type: String!
-}
-
-type TrackType {
-  album: AlbumType!
-  artists: [ArtistSimplifiedType!]!
-  durationMs: Float!
-  spotifyId: ID!
-  name: String!
-  popularity: Float!
-  type: String!
-}
-
-type PlaylistTrackType {
-  addedAt: String!
-  addedBy: UserPublicType!
-  track: TrackType!
-}
-
-type PagingType {
-  items: [PlaylistTrackType!]!
-  limit: Float!
-  offset: Float!
+type TracksType {
   total: Float!
 }
 
-type PlaylistType {
+type PlaylistDTO {
   collaborative: Boolean!
-  description: String!
+  description: String
   spotifyId: ID!
   images: [ImageType!]!
   name: String!
   owner: UserPublicType!
   public: Boolean!
-  tracks: PagingType!
+  tracks: TracksType!
   type: String!
 }
 
-type GetPlaylistsType {
-  items: [PlaylistType!]!
-  limit: Float!
-  offset: Float!
-  total: Float!
+type PlaylistDTOEdge {
+  cursor: String!
+  node: PlaylistDTO!
+}
+
+type GetPlaylistsDTO {
+  edges: [PlaylistDTOEdge!]
+  totalCount: Int!
+  hasNextPage: Boolean!
 }
 
 type Query {
-  playlists: GetPlaylistsType!
   me: UserPublicType!
+  playlists(cursor: String, first: Int!): GetPlaylistsDTO!
 }

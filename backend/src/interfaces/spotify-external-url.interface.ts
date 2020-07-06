@@ -1,3 +1,3 @@
-export interface SpotifyExternalUrl {
+export interface SpotifyExternalUrls {
   [key: string]: string;
 }

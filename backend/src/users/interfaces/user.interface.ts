@@ -1,7 +1,7 @@
 import { Document } from 'mongoose';
 
 export interface User extends Document {
-  type: 'user';
+  type: string;
   spotifyId: string;
   displayName: string;
   accessToken: string;

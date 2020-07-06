@@ -2,7 +2,7 @@
   <main>
     <div>
       <h1>Welcome to jukebox</h1>
-      <a href="http://localhost:3000/auth/login">Login with spotify</a>
+      <a href="http://localhost:4000/auth/login">Login with spotify</a>
     </div>
   </main>
 </template>
