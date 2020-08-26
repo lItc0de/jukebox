@@ -30,7 +30,7 @@ export class PlaylistsService {
   }
 
   private decodeCursor(cursor) {
-    const decoded = Number((new Buffer(cursor, 'base64')).toString('utf8'));
+    const decoded = Number((Buffer.from(cursor, 'base64')).toString('utf8'));
     if (Number.isNaN(decoded)) return 0;
     return decoded;
   }

@@ -5,6 +5,7 @@ import { GetPlaylistsDTO } from './dto/get-playlists.dto';
 import { GqlAuthGuard } from 'src/auth/gql-jwt.guard';
 import { CurrentUser } from 'src/decorators/currentUser.decorator';
 import { serializeSpotifyPlaylists } from './playlists.serializer';
+import { User } from 'src/users/interfaces/user.interface';
 
 @Resolver()
 export class PlaylistsResolver {
@@ -13,7 +14,7 @@ export class PlaylistsResolver {
   @Query(() => GetPlaylistsDTO)
   @UseGuards(GqlAuthGuard)
   async playlists(
-    @CurrentUser() user,
+    @CurrentUser() user: User,
     @Args('first', { type: () => Int }) first: number,
     @Args('cursor', { type: () => String, nullable: true }) cursor: string,
   ): Promise<GetPlaylistsDTO> {
