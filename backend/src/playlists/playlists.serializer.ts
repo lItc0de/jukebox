@@ -98,7 +98,7 @@ class PlaylistEdge {
 
   @Expose()
   get cursor() {
-    return new Buffer(this.offset.toString()).toString('base64');
+    return Buffer.from(this.offset.toString()).toString('base64');
   }
 }
 
