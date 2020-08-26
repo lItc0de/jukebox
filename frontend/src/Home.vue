@@ -1,38 +1,81 @@
 <template>
   <div class="home-page">
-    <ApolloQuery
-      :query="require('./graphql/Playlists.gql')"
-      :variables="{ first: 50, cursor: '' }"
-    >
-      <template slot-scope="{ result: { loading, error, data } }">
-        <div v-if="loading">Loading</div>
-        <ul v-else-if="data" class="playlists">
-          <li class="playlists-header">
-            <span />
-            <span class="name">Name</span>
-            <span>Owner</span>
-            <span>Tracks</span>
-          </li>
-          <c-playlist
-            v-for="edge in data.playlists.edges"
-            :playlist="edge.node"
-            :key="edge.node.id"
-          />
-        </ul>
-        <div v-else-if="error">{{ error.message }}</div>
-      </template>
-    </ApolloQuery>
+    <ul v-if="playlists" class="playlists">
+      <li class="playlists-header">
+        <span />
+        <span class="name">Name</span>
+        <span>Owner</span>
+        <span>Tracks</span>
+      </li>
+      <c-playlist
+        v-for="edge in playlists.edges"
+        :playlist="edge.node"
+        :key="edge.node.id"
+      />
+    </ul>
+    <div class="target" ref="target" />
   </div>
 </template>
 
 <script>
 import CPlaylist from '@/components/Playlist.vue';
+import query from './graphql/Playlists.gql';
+
+const options = {
+  root: null,
+  threshold: 0,
+};
 
 export default {
   name: 'HomePage',
 
   components: {
     CPlaylist,
+  },
+
+  data() {
+    return {
+      observer: null,
+      query: query,
+    };
+  },
+
+  mounted() {
+    this.observer = new IntersectionObserver(this.fetchMore, options);
+    this.observer.observe(this.$refs.target);
+  },
+
+  methods: {
+    fetchMore() {
+      if (!this.playlists) return;
+      if (!this.playlists.hasNextPage) return;
+      this.$apollo.queries.playlists.fetchMore({
+        variables: {
+          first: 50,
+          cursor: this.playlists.edges[this.playlists.edges.length - 1].cursor,
+        },
+        updateQuery: (
+          { playlists: previousPlaylists },
+          { fetchMoreResult: { playlists: newPlaylists } }
+        ) => {
+          return {
+            playlists: {
+              __typename: newPlaylists.__typename,
+              edges: [...previousPlaylists.edges, ...newPlaylists.edges],
+              hasNextPage: newPlaylists.hasNextPage,
+              totalCount: newPlaylists.totalCount,
+            },
+          };
+        },
+      });
+    },
+  },
+
+  apollo: {
+    playlists: {
+      query,
+      variables: { first: 50, cursor: '' },
+    },
   },
 };
 </script>
@@ -56,4 +99,8 @@ export default {
 
     > .name
       flex 3
+
+  > .target
+    height 4rem
+    list-style none
 </style>
