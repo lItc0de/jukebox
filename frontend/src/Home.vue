@@ -41,14 +41,22 @@ export default {
   },
 
   mounted() {
-    this.observer = new IntersectionObserver(this.fetchMore, options);
+    this.observer = new IntersectionObserver(this.handleIntersection, options);
     this.observer.observe(this.$refs.target);
   },
 
   methods: {
-    fetchMore() {
+    handleIntersection(entries) {
       if (!this.playlists) return;
       if (!this.playlists.hasNextPage) return;
+
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        this.fetchMore();
+      });
+    },
+
+    fetchMore() {
       this.$apollo.queries.playlists.fetchMore({
         variables: {
           first: 50,

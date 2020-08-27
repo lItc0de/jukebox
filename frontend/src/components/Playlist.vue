@@ -1,7 +1,7 @@
 <template>
   <li class="playlist">
     <span class="image">
-      <img :src="playlist.images[0].url" :alt="playlist.name" />
+      <lazy-img :src="playlist.images[0].url" :alt="playlist.name" />
     </span>
     <span class="name">{{ playlist.name }}</span>
     <span>{{ playlist.owner.displayName }}</span>
@@ -10,8 +10,14 @@
 </template>
 
 <script>
+import LazyImg from '@/components/basic/LazyImg.vue';
+
 export default {
   name: 'Playlist',
+
+  components: {
+    LazyImg,
+  },
 
   props: {
     playlist: {
